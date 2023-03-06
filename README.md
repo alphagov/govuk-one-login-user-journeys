@@ -32,7 +32,7 @@ To Quit the Prototype Kit, in the terminal press the ctrl and c keys together.
 
 ## Prototype specific features
 
-### To enable "Back to scenario landing page" link in the header and set a url for it""
+### To enable "Back to scenario landing page" link in the header and set a url for it (the link ist disabled by default)
 Put inside the template, right after "{% extends "layouts/main.html" %}":
 ```shell
 {% set showTopNav = true %}
