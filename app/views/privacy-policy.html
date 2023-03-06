@@ -1,0 +1,57 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Prove your identity
+      </h1>
+
+      <form class="form" action="identity-welcome" method="post">
+
+        <p>To use [service], you need to first prove your identity.</p>
+
+        <p>You need to sign in to or create an account to do this.</p>
+
+        <p>When you prove your identity, you help protect yourself from online identity theft.</p>
+
+
+        <p>By continuing with your application, you confirm that:</p>
+
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{{ govukCheckboxes({
+  name: "consent",
+  fieldset: {
+    legend: {
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "consent",
+      html: "I have read and understood the [service] <a>privacy policy (opens in a new tab)</a>. I understand how [service] will process my personal data when I'm applying online, before my application has been submitted"
+    }
+  ]
+}) }}
+
+        <button href="identity-welcome" class="govuk-button">Continue</button>
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
