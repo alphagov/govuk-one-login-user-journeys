@@ -4,3 +4,49 @@
 // 
 
 // Add extra styles here
+
+.govuk-header__content {
+  @include govuk-media-query($from: desktop) {
+    width: 45%;
+  }
+}
+
+.govuk-header__logo {
+  @include govuk-media-query($from: desktop) {
+    width: 55%;
+  }
+}
+
+.govuk-header__navigation-list {
+  text-align: right;
+  a::before {
+    content: url('../images/Icon_ Before.svg');
+    display: inline-block;
+    position: relative;
+    top: 3px;
+    right: 8px;
+  }
+}
+
+@media (min-width: 812px) and (max-width: 930px) {
+  .govuk-header__logo {
+    width: 50%;
+    padding-right: 0;
+  }
+  .govuk-header__content {
+    width: 50%;
+    padding-left: 0;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 812px) {
+  .govuk-header__logo {
+    width: 45%;
+    padding-right: 0;
+  }
+  .govuk-header__content {
+    width: 55%;
+    padding-left: 0;
+    padding-top: 18px;
+  }
+}
