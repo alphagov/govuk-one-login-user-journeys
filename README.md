@@ -30,3 +30,12 @@ npm run dev
 
 To Quit the Prototype Kit, in the terminal press the ctrl and c keys together.
 
+## Prototype specific features
+
+### To enable "Back to scenario landing page" link in the header and set a url for it""
+Put inside the template, right after "{% extends "layouts/main.html" %}":
+```shell
+{% set showTopNav = true %}
+{% set topNavUrl = "/home" %}
+```
+replace "/home" url value with the one that you need the link to go to
