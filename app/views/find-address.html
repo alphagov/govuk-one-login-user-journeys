@@ -1,0 +1,41 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Find your address
+      </h1>
+
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+
+      {{ govukInput({
+        label: {
+          text: "Enter your postcode"
+        },
+        classes: "govuk-input--width-10",
+        hint: {
+          text: "Enter the postcode of your current home address. This must be a UK postcode, for example SW1A 2AA."
+        },
+        id: "Middle names",
+        name: "Middle names"
+      }) }}
+
+        <a href="choose-address">
+        <button class="govuk-button" data-module="govuk-button">Find addess</button>
+        </a>
+
+    </div>
+  </div>
+
+{% endblock %}

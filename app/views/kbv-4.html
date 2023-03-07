@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  classes: "govuk-radios--inline",
+  name: "changed-name",
+  fieldset: {
+    legend: {
+      text: "When did you take out your mobile phone contract?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "Think about when you took out your personal phone contract instead of your work phone, if you have one."
+  },
+  items: [
+    {
+      value: "yes",
+      text: "05/2019"
+    },
+    {
+      value: "no",
+      text: "11/2020"
+    },
+    {
+      value: "no",
+      text: "08/2021"
+    },
+    {
+      value: "no",
+      text: "NONE OF THE ABOVE / DOES NOT APPLY"
+    }
+  ]
+}) }}
+
+<a href="success">
+<button class="govuk-button" data-module="govuk-button">Continue</button>
+</a>
+
+    </div>
+  </div>
+
+{% endblock %}

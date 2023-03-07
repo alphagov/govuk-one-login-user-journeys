@@ -1,0 +1,119 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Enter your details exactly as they appear on your UK passport
+      </h1>
+
+      <form class="form" action="/find-address" method="post">
+
+        <p>Your passport includes a lot of information that we can check to make sure that you are who you say you are.</p>
+
+        <p>We'll check your details with the HM Passport Office to make sure your passport has not been cancelled or reported as lost or stolen.</p>
+
+        <div class="govuk-inset-text">
+          <p>If you do not have a UK passport or you cannot remember your details, you can <a href="#">prove your identity another way</a> instead.</p>
+        </div>
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+
+        {{ govukInput({
+          label: {
+            text: "Passport number"
+          },
+          classes: "govuk-input--width-10",
+          hint: {
+            text: "This is the 9 digit number in the top right hand corner of the photo page in your passport"
+          },
+          id: "account-number",
+          name: "account-number",
+          inputmode: "numeric",
+          spellcheck: false
+        }) }}
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+
+        {{ govukInput({
+          label: {
+            text: "Surname"
+          },
+          id: "surname",
+          name: "surname"
+        }) }}
+
+        <p>Given names</p>
+        <div class="govuk-inset-text">
+                  {% from "govuk/components/input/macro.njk" import govukInput %}
+
+        {{ govukInput({
+          label: {
+            text: "First name"
+          },
+          id: "First name",
+          name: "First name"
+        }) }}
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+
+        {{ govukInput({
+          label: {
+            text: "Middle names"
+          },
+          hint: {
+            text: "Leave this blank if you do not have any middle names"
+          },
+          id: "Middle names",
+          name: "Middle names"
+        }) }}
+        </div>
+
+        {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+        {{ govukDateInput({
+          id: "date-of-birth",
+          namePrefix: "date-of-birth",
+          fieldset: {
+            legend: {
+              text: "Date of birth"
+            }
+          },
+          hint: {
+            text: "For example, 27 3 1997"
+          }
+        }) }}
+
+        {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+        {{ govukDateInput({
+          id: "expiry-date",
+          namePrefix: "expiry-date",
+          fieldset: {
+            legend: {
+              text: "Expiry date"
+            }
+          },
+          hint: {
+            text: "For example, 01 1 2025"
+          }
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

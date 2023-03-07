@@ -1,0 +1,64 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Enter your passport details and answer security questions
+      </h1>
+
+        <p>To prove your identity this way, you'll need:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>your UK passport details (including your name, passport number and the date your passport expires)</li>
+          <li>your current home address (you might also need your previous address if you've recently moved)</li>
+          <li>to answer some questions that only you should know the answers to</li>
+        </ul>
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "sign-in",
+          fieldset: {
+            legend: {
+              text: "What would you like to do?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "passport",
+              text: "Continue to prove your identity this way",
+              hint: {
+                text: "You’ll need a UK passport"
+              }
+            },
+            {
+              value: "non-passport",
+              text: "Prove your identity another way",
+              hint: {
+                text: "Continue to the service you want to use and look for other ways to prove your identity."
+              }
+            }
+          ]
+        }) }}
+
+        <a href="passport-details">
+        <button class="govuk-button" >Continue</button>
+        </a>
+
+    </div>
+  </div>
+
+{% endblock %}
