@@ -1,0 +1,49 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Answer security questions
+      </h1>
+
+        <p>We'll ask you some security questions that only you should know the answers to. This will help us stop anyone else who might have your details from pretending to be you.</p>
+
+        <p>The questions will be about things like your mobile phone contractm bank account, and any credit cards, loans or mortgages you have.</p>
+
+        {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+        {{ govukWarningText({
+          text: "Try to answer these questions as accurately as you can. You will not be able to change your answers if you make a mistake.",
+          iconFallbackText: "Warning"
+        }) }}
+
+        <p>We will not keep your answers.</p>
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">How we know what questions to ask you</span>
+          </summary>
+          <div class="govuk-details__text">
+            <p>Content TBC</p>
+          </div>
+        </details>
+
+        <a href="kbv-1">
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+        </a>
+
+    </div>
+  </div>
+
+{% endblock %}

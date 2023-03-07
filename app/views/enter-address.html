@@ -1,0 +1,98 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Enter your address
+      </h1>
+
+      <p>Postcode</p>
+      <p style="margin-top: -20px;"><strong>LS1 3BE</strong> &nbsp;&nbsp;&nbsp;<a href="find-address">Change</a></p>
+
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+      {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+      
+      {% call govukFieldset({
+      }) %}
+      
+        {{ govukInput({
+          label: {
+            text: "Flat number"
+          },
+          classes: "govuk-input--width-5",
+          id: "address-postcode",
+          name: "address-postcode",
+          autocomplete: "postal-code"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "House number"
+          },
+          classes: "govuk-input--width-5",
+          id: "address-postcode",
+          name: "address-postcode",
+          autocomplete: "postal-code"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: 'House name'
+          },
+          id: "address-line-1",
+          name: "address-line-1",
+          autocomplete: "address-line1"
+        }) }}
+      
+        {{ govukInput({
+          label: {
+            text: 'Street name'
+          },
+          id: "address-line-2",
+          name: "address-line-2",
+          autocomplete: "address-line2"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: 'Town or city'
+          },
+          id: "address-line-2",
+          name: "address-line-2",
+          autocomplete: "address-line2"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "When did you start living there?",
+            classes: "govuk-label--s",
+            isPageHeading: true
+          },
+          classes: "govuk-input--width-10",
+          hint: {
+            text: "Enter the year you started living at this address, for example 2017."
+          }
+        }) }}
+
+      
+      {% endcall %}
+
+      <a href="confirm-address">
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+      </a>
+
+    </div>
+  </div>
+
+{% endblock %}

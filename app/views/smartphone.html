@@ -1,0 +1,55 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Do you have a smartphone you can use?
+      </h1>
+
+      <form class="form" action="/confirm-web" method="post">
+
+        <p>Some ways of confirming your identity require a smartphone.</p>
+
+        <p>If you can use your smartphone to confirm your identity, we will guide you to switch devices later.</p>
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "Do you have one of these types of photo ID?",
+          fieldset: {
+          },
+          items: [
+            {
+              value: "iphone",
+              text: "Yes, I have an iPhone"
+            },
+            {
+              value: "android",
+              text: "Yes, I have an Android phone (for example, Samsung, Google Pixel, OPPO)"
+            },
+            {
+              value: "No",
+              text: "I don't have either of these"
+            }
+          ]
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

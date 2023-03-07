@@ -1,0 +1,65 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      You must have photo ID to prove your identity with a GOV.UK One Login
+    </h1>
+
+      <p>You can only prove your identity with a GOV.UK One Login if you have one of the following types of photo ID.</p>
+
+      <h2 class="govuk-heading-m">UK photocard driving licence</h2>
+
+      <p>You'll need a valid full or provisional driving licence with your photo on it.</p>
+
+      <h2 class="govuk-heading-m">UK or non-UK biometric passport</h2>
+
+      <p>Biometric passports (or 'ePassports') have a small rectangular symbol on the front cover. You can use them to go through eGates at airports and train stations.</p>
+
+
+      <div class="govuk-inset-text">
+        If you have and expired UK biometric passport, you can still use it to prove your identity up to 18 months after the expiry date.
+      </div>
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {{ govukRadios({
+        name: "Do you have one of these types of photo ID?",
+        fieldset: {
+          legend: {
+            text: "Do you have one of these types of photo ID?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes"
+          },
+          {
+            value: "No",
+            text: "No"
+          }
+        ]
+      }) }}
+
+      <a href="create-or-sign-in">
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+      </a>
+
+  </div>
+</div>
+
+{% endblock %}

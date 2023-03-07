@@ -14,24 +14,14 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Enter your email address
+        You can confirm your identity by entering details about your documents and records
       </h1>
 
-      <form class="form" action="/url/of/next/page" method="post">
+        <p>Based on what you've told us, this is the best option for you. You can choose this option on the next screen.</p>
 
-        <p>Enter your email address to create an account.</p>
-
-        {% from "govuk/components/input/macro.njk" import govukInput %}
-
-        {{ govukInput({
-          label: {
-            text: "Email address"
-          },
-          id: "event-name",
-          name: "event-name"
-        }) }}
-
+        <a href="passport-kbv-intro">
         <button class="govuk-button" data-module="govuk-button">Continue</button>
+        </a>
 
       </form>
 
