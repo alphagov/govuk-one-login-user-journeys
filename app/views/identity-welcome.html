@@ -1,0 +1,80 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Prove your identity with a GOV.UK account
+      </h1>
+
+      <p>You can currently only prove your identity with your GOV.UK account if you have a UK passport.</p>
+
+      {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+      {{ govukInsetText({
+        text: "If your passport has expired, you can still use it to prove your identity up until 18 months after the expiry date."
+      }) }}
+
+      <p>You do not need to have your passport with you if you can remember the details on it.</p>
+
+      <h2 class="govuk-heading-m">What you need to do</h2>
+
+      <p>It will take you about 10 minutes to prove your identity this way.</p>
+      
+      <p>YYou'll need to create or sign in to your GOV.UK account first. We'll then ask you for your current address and passport details.</p>
+
+      <p>We'll also ask you some security questions that only you should know the answers to. You might find it easier to answer these questions if you have information about:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>your mobile phone contract</li>
+        <li>your bank account</li>
+        <li>any credit cards, loans or mortgages you have</li>
+      </ul>
+      
+      <p>We'll only use the information you give us to make sure that you are who you say you are.</p>
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {{ govukRadios({
+        name: "where-do-you-live",
+        fieldset: {
+          legend: {
+            text: "Choose a way to prove your identity",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "one-login",
+            text: "Continue to sign in or create a GOV.UK account"
+          },
+          {
+            value: "another-way",
+            text: "Prove your identity another way",
+            hint: {
+              text: "You can prove your identity online with GOV.UK Verify or take your identity documents to be checked in person."
+            }
+          }
+        ]
+      }) }}
+
+      <a href="create-email">
+      <button class="govuk-button" data-module="">Continue</button>
+      </a>
+
+
+    </div>
+  </div>
+
+{% endblock %}
