@@ -14,22 +14,12 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Enter your email address
+        You've signed in to your GOV.UK account
       </h1>
 
       <form class="form" action="/url/of/next/page" method="post">
 
-        <p>Enter your email address to create an account.</p>
-
-        {% from "govuk/components/input/macro.njk" import govukInput %}
-
-        {{ govukInput({
-          label: {
-            text: "Email address"
-          },
-          id: "event-name",
-          name: "event-name"
-        }) }}
+        <p>You can now continue to prove your identity</p>
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
 
