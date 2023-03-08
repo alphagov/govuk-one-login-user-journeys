@@ -16,7 +16,7 @@
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 {{ govukRadios({
-  classes: "govuk-radios--inline",
+  classes: "govuk-radios",
   name: "changed-name",
   fieldset: {
     legend: {
@@ -39,7 +39,8 @@
     },
     {
       value: "no",
-      text: "03/2021"
+      text: "03/2021",
+      checked: true
     },
     {
       value: "no",
