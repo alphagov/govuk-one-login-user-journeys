@@ -16,7 +16,7 @@
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 {{ govukRadios({
-  classes: "govuk-radios--inline",
+  classes: "govuk-radios",
   name: "changed-name",
   fieldset: {
     legend: {
@@ -35,7 +35,8 @@
     },
     {
       value: "no",
-      text: "OVER £200 UP TO £400"
+      text: "OVER £200 UP TO £400",
+      checked: true
     },
     {
       value: "no",

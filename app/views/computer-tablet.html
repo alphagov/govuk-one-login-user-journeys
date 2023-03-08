@@ -17,7 +17,7 @@
         Are you on a computer or a tablet right now?
       </h1>
 
-        <p>Some ways of confirming your identity are only available om specific devices. Let us know what device you are using right now. </p>
+        <p>Some ways of confirming your identity are only available on specific devices. Let us know what device you are using right now. </p>
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
@@ -28,7 +28,8 @@
           items: [
             {
               value: "yes",
-              text: "Yes, I am on a computer or tablet"
+              text: "Yes, I am on a computer or tablet",
+              checked: true
             },
             {
               value: "No",
