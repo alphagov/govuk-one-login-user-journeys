@@ -1,15 +1,12 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  [Service name] – GOV.UK One Login prototype
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block header %}
   <!-- Blank header with no service name for the start page -->
   {{ govukHeader() }}
-
-{% block beforeContent %}
-  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -17,7 +14,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        Service name
+        {% if serviceName %} {{ serviceName }} {% endif %}
       </h1>
 
       <p>Use this service to:</p>
