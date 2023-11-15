@@ -1,5 +1,7 @@
 # GovUK One Login User Journeys Prototype
 
+## This repository is Archived and read only
+
 ## Prototype Kit requirements
 
 ```shell
